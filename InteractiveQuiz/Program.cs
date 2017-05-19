@@ -31,7 +31,7 @@ namespace InteractiveQuiz
 				Console.WriteLine("100%! You Win!");
 			else
 				Console.WriteLine("You got " + correct + " answers correct.");
-
+			
 			while (true)
 			{
 				Console.Write("GAME OVER...Enter \"q\" to quit: ");
