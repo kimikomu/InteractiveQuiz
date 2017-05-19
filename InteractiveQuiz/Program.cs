@@ -6,14 +6,15 @@ namespace InteractiveQuiz
 	{
 		static void Main()
 		{
-			string[] questionTopics = { "California", "Hawaii", "Kentucky" };
+			string[] states = { "California", "Hawaii", "Kentucky" };
 			string[] answers = { "sacramento", "honolulu", "frankfort" };
 			int correct = answers.Length;
 			int i = 0;
 
 			Console.WriteLine("State Capital Quiz");
 
-			foreach (string value in questionTopics)
+			
+			foreach (string value in states)
 			{
 				Console.Write("What is the capital of " + value + "? ");
 				string input = Console.ReadLine();
