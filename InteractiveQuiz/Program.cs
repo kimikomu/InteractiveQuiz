@@ -9,30 +9,27 @@ namespace InteractiveQuiz
 			string[] questionTopics = { "California", "Hawaii", "Kentucky" };
 			string[] answers = { "sacramento", "honolulu", "frankfort" };
 			int correct = answers.Length;
-
+			int i = 0;
 
 			Console.WriteLine("State Capital Quiz");
 
-			for (int i = 0, n = answers.Length; i < n; i++)
+			foreach (string value in questionTopics)
 			{
-				Console.Write("What is the capital of " + questionTopics[i] + "? ");
-
+				Console.Write("What is the capital of " + value + "? ");
 				string input = Console.ReadLine();
 
 				if (input.ToLower() != answers[i])
-				{
 					correct -= 1;
-				}
+
+				i++;
 			}
 
 			if (correct == 0)
 				Console.WriteLine("NONE correct!? You lose!");
-			else if (correct < answers.Length)
-				Console.WriteLine("You got " + correct + " answers correct.");
 			else if (correct == answers.Length)
 				Console.WriteLine("100%! You Win!");
 			else
-				Console.WriteLine("Something is not working in this game.");
+				Console.WriteLine("You got " + correct + " answers correct.");
 
 			while (true)
 			{
@@ -40,11 +37,8 @@ namespace InteractiveQuiz
 				string q = Console.ReadLine();
 
 				if (q.ToLower() == "q")
-				{
 					break;
-				}
 			}
-
 		}
 	}
 }
