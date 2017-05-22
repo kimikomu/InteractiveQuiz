@@ -8,34 +8,38 @@ namespace InteractiveQuiz
 		{
 			string[] states = { "California", "Hawaii", "Kentucky" };
 			string[] answers = { "sacramento", "honolulu", "frankfort" };
-			int correct = answers.Length;
-			int i = 0;
+			var answer = 0;
+			var incorrect = 0;
 
 			Console.WriteLine("State Capital Quiz");
 
-			
+			// ask all questions in the quiz one at a time
 			foreach (string value in states)
 			{
 				Console.Write("What is the capital of " + value + "? ");
-				string input = Console.ReadLine();
+				var input = Console.ReadLine();
 
-				if (input.ToLower() != answers[i])
-					correct -= 1;
+				// update the amount of incorrect answers
+				if (input.ToLower() != answers[answer])
+					incorrect += 1;
 
-				i++;
+				// move to the next answer in the answers array
+				answer++;
 			}
 
-			if (correct == 0)
-				Console.WriteLine("NONE correct!? You lose!");
-			else if (correct == answers.Length)
+			// print score
+			if (incorrect == 0)
 				Console.WriteLine("100%! You Win!");
+			else if (incorrect == answers.Length)
+				Console.WriteLine("NONE correct!? You lose!");
 			else
-				Console.WriteLine("You got " + correct + " answers correct.");
+				Console.WriteLine("You got " + incorrect + " questions wrong.");
 			
+			// prompt user to quit
 			while (true)
 			{
 				Console.Write("GAME OVER...Enter \"q\" to quit: ");
-				string q = Console.ReadLine();
+				var q = Console.ReadLine();
 
 				if (q.ToLower() == "q")
 					break;
